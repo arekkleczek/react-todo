@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState} from 'react'
 import { Footer } from './ui/Footer'
-import { TaskCreator } from './ui/TaskCreator.jsx'
-import { TaskList } from "./ui/TaskList";
+import { TaskCreator } from './ui/TaskCreator'
+import { TaskList } from './ui/TaskList'
+import { ThemeSwitcher } from "./ui/ThemeSwitcher";
 
 function App() {
   const [tasks, setTasks] = useState([])
@@ -32,13 +33,16 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen dark:bg-gray-900">
       <div className="h-96 relative">
         <img src="./bg.jpg" alt="background" className="w-full object-cover h-full" />
         <div className="bg-gradient-to-r from-indigo-800 to-fuchsia-800 absolute top-0 left-0 h-full w-full opacity-80" />
       </div>
       <div className="relative z-10 max-w-xl mx-auto -my-64 px-10">
-        <span className="text-white text-6xl font-semibold tracking-widest mb-4 block">TODO</span>
+        <h1 className="text-white text-6xl font-semibold tracking-widest mb-4 flex items-center">
+          <span className="mr-auto">TODO</span>
+          <ThemeSwitcher />
+        </h1>
         <TaskCreator onAdd={handleAddingNewTask} />
         <TaskList
           data={tasks}

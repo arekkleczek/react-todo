@@ -26,13 +26,13 @@ export const TaskCreator = ({ onAdd }) => {
   }
 
   return (
-    <div className="bg-gray-800 p-4 rounded-md">
+    <div className="bg-white dark:bg-gray-800 p-4 rounded-md shadow">
       <div className="flex items-center">
         <Checkbox isChecked={task.finished} onClick={() => setTask({ ...task, finished: !task.finished })} />
         <input
           value={task.title}
           type="text"
-          className="flex-1 bg-transparent outline-0 text-white ml-4"
+          className="flex-1 bg-transparent outline-0 dark:text-white ml-4"
           placeholder="Create a new task..."
           onChange={(e) => setTask({ ...task, title: e.target.value })}
           onKeyDown={handleKeyDown}

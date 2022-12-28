@@ -8,7 +8,7 @@ export const TaskItem = ({ task, onTaskUpdate, onRemove }) => {
   return (
     <li
       key={task.id}
-      className="bg-gray-800 p-4 text-white hover:bg-gray-700 flex"
+      className="p-4 bg-white dark:bg-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 flex first:rounded-t-md"
     >
       <Checkbox
         isChecked={task.finished}

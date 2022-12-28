@@ -1,6 +1,6 @@
-export const Filters = ({ tasks, filter, onFilterChange, onClear }) => {
+export const Filters = ({ tasks, filter, onFilterChange, onClear, className }) => {
   return (
-    <li className="bg-gray-800 p-4 text-center sm:flex text-gray-500 text-sm justify-between border-t border-gray-700">
+    <li className={`bg-white dark:bg-gray-800 p-4 text-center sm:flex text-gray-500 text-sm justify-between border-t border-gray-200 dark:border-gray-700 ${className}`}>
       <span>{tasks.active.length} items left</span>
       <div className="mx-auto flex gap-2 justify-center my-4 sm:my-0">
         <button

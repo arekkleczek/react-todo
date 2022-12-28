@@ -11,12 +11,13 @@ export const TaskList = ({ data, onTaskUpdate, onClear, onRemove }) => {
   }
 
   return (
-    <ul className="mt-2 rounded-md overflow-hidden">
+    <ul className="mt-2 rounded-md shadow">
       {tasks[filter].map((task) => (
         <TaskItem
           task={task}
           onTaskUpdate={onTaskUpdate}
           onRemove={onRemove}
+          key={task.id}
         />
       ))}
       <Filters
@@ -24,6 +25,7 @@ export const TaskList = ({ data, onTaskUpdate, onClear, onRemove }) => {
         filter={filter}
         onFilterChange={setFilter}
         onClear={onClear}
+        className={tasks[filter].length > 0 ? 'rounded-b-md' : 'rounded-md'}
       />
     </ul>
   )
