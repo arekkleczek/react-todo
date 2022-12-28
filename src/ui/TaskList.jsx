@@ -35,9 +35,9 @@ export const TaskList = ({ data, onTaskUpdate, onClear, onRemove }) => {
           </button>
         </li>
       ))}
-      <li className="bg-gray-800 p-4 flex text-gray-500 text-sm justify-between border-t border-gray-700">
+      <li className="bg-gray-800 p-4 text-center sm:flex text-gray-500 text-sm justify-between border-t border-gray-700">
         <span>{tasks.active.length} items left</span>
-        <div className="mx-auto flex gap-2">
+        <div className="mx-auto flex gap-2 justify-center my-4 sm:my-0">
           <button
             className={`${filter === 'all' ? 'text-blue-400' : null}`}
             onClick={() => setFilter('all')}
