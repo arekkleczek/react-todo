@@ -4,18 +4,7 @@ import { TaskCreator } from './ui/TaskCreator.jsx'
 import { TaskList } from "./ui/TaskList";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: 'dasdas',
-      title: 'Zrobic zakupy',
-      finished: false,
-    },
-    {
-      id: 'qwee',
-      title: 'Pojsc na spacer',
-      finished: true,
-    },
-  ])
+  const [tasks, setTasks] = useState([])
 
   function handleAddingNewTask(task) {
     const tasksCopy = [...tasks]
