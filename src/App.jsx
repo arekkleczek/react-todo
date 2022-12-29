@@ -8,32 +8,40 @@ function App() {
   const [tasks, setTasks] = useState([])
 
   function handleAddingNewTask(task) {
-    const tasksCopy = [...tasks]
+    const tasksCopy = Array.from(tasks)
     tasksCopy.push(task)
     setTasks(tasksCopy)
   }
 
   function handleTogglingTasks(id) {
-    const tasksCopy = [...tasks]
+    const tasksCopy = Array.from(tasks)
     const foundTask = tasksCopy.find(task => task.id === id)
     foundTask.finished = !foundTask.finished
     setTasks(tasksCopy)
   }
 
   function clearCompleted() {
-    const tasksCopy = [...tasks]
+    const tasksCopy = Array.from(tasks)
     const activeTasks = tasksCopy.filter(task => !task.finished)
     setTasks(activeTasks)
   }
 
   function removeTaskById(id) {
-    const tasksCopy = [...tasks]
+    const tasksCopy = Array.from(tasks)
     const filteredTasks = tasksCopy.filter(task => task.id !== id)
     setTasks(filteredTasks)
   }
 
+  function onDragEnd(result) {
+    if (!result.destination) return
+    const tasksCopy = Array.from(tasks)
+    const [reorderedTask] = tasksCopy.splice(result.source.index, 1)
+    tasksCopy.splice(result.destination.index, 0, reorderedTask)
+    setTasks(tasksCopy)
+  }
+
   return (
-    <div className="min-h-screen dark:bg-gray-900">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
       <div className="h-96 relative">
         <img src="./bg.jpg" alt="background" className="w-full object-cover h-full" />
         <div className="bg-gradient-to-r from-indigo-800 to-fuchsia-800 absolute top-0 left-0 h-full w-full opacity-80" />
@@ -49,6 +57,7 @@ function App() {
           onTaskUpdate={handleTogglingTasks}
           onClear={clearCompleted}
           onRemove={removeTaskById}
+          onDragEnd={onDragEnd}
         />
         <Footer />
       </div>
