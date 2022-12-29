@@ -26,7 +26,7 @@ export const TaskCreator = ({ onAdd }) => {
   }
 
   return (
-    <div className="bg-white dark:bg-gray-800 p-4 rounded-md shadow">
+    <div className="bg-white dark:bg-gray-800 px-7 py-4 rounded-md shadow">
       <div className="flex items-center">
         <Checkbox isChecked={task.finished} onClick={() => setTask({ ...task, finished: !task.finished })} />
         <input
